@@ -1,19 +1,22 @@
 #include <stdio.h>
 #include <conio.h>
 #include <windows.h>
+#include <stdlib.h>
 
 #define POINT_NUMBER 9
 #define ARGUMENT 24
 #define FUNCTION 24
 int main()
 {
+    int status=1;
+    do {
     HANDLE hconsole;
     WORD point_color,arg_c,func_c,header;
     COORD cursorPos;
     CONSOLE_SCREEN_BUFFER_INFO SBInfo;
     char choise=0,choise2=0;
     float heigh_value;
-    int status=1,i,con=1;
+    int i,con=1;
     hconsole = GetStdHandle(STD_OUTPUT_HANDLE);
     point_color = ((14) << 4) + (2);
     arg_c = ((15) << 4) + (12);
@@ -34,6 +37,13 @@ int main()
         {
            printf("\nEnter step: ");
             scanf("%f", &step);
+            if (step<0 && xmax>=0)
+           {
+               printf("Wrong data");
+                getch();
+                system("cls");
+                return main();
+           }
             heigh_value=((xmax-xmin)/step)+1;
         };break;
     case 'n':
@@ -160,17 +170,18 @@ int main()
         coutt++;
     }
     //getch();
-    do
-        {
+  //  do
+      //  {
             printf("\nAre you want to continue? ");
             scanf("%s",&choise2);
             switch (choise2)
             {
             case 'n':
-                case 'N':status=1;return 0;break;
+                case 'N':status=0;return 0;break;
                 case 'y':
-                    case 'Y': status=1;system("cls");return main();break;
+                    case 'Y': status=1;system("cls");break;
                     default : status=0;
-            }
-        } while (status==0);
+         //   }
+      }
+        } while (status==1);
 }
