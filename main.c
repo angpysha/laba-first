@@ -67,7 +67,7 @@ int main()
     }
  //   printf("\n|   N   |              X              |        Y          |");
     SetConsoleTextAttribute(hconsole,header);
-    printf("\n|%-9s|%-24s|%-24s|","N","X","Y");
+    printf("\n|%-*s|%-*s|%-*s|",POINT_NUMBER,"N",ARGUMENT,"X",FUNCTION,"Y");
     SetConsoleTextAttribute(hconsole,15);
     printf("\n");
  //   printf("\n\n%f\n\n",xmin);
@@ -93,15 +93,16 @@ int main()
             SetConsoleTextAttribute(hconsole,point_color);
            // SETCON
            // printf("%*s%-7.0f",3,"",coutt);
-            printf("%-9.0f",coutt);
+           // printf("%-9.0f",coutt);
+           printf("%-*.0f",POINT_NUMBER,coutt);
             SetConsoleTextAttribute(hconsole,15);
             printf("|");
             SetConsoleTextAttribute(hconsole,arg_c);
-            printf("%-24.3f",x);
+            printf("%-*.3f",ARGUMENT,x);
             SetConsoleTextAttribute(hconsole,15);
             printf("|");
             SetConsoleTextAttribute(hconsole,func_c);
-            printf("%-24.3f",y);
+            printf("%-*.3f",FUNCTION,y);
             SetConsoleTextAttribute(hconsole,15);
             printf("|\n");
         //for
