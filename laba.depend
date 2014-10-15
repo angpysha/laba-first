@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1413382452 source:c:\users\andrey_petrowskiy\Новая папка\laba\main.c
+	<stdio.h>
+	<conio.h>
+	<windows.h>
+
